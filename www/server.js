@@ -38,7 +38,7 @@ const util_1 = require("./util/util");
     app.get('/filteredimage', (req, res) => __awaiter(this, void 0, void 0, function* () {
         const image_url = req.query.image_url.toString();
         if (!image_url) {
-            res.status(400).send('Image url is required');
+            res.status(400).send('Image url missing, no image found');
         }
         const filtered_image = yield util_1.filterImageFromURL(image_url);
         res.status(200).sendFile(filtered_image, () => {
